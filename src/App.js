@@ -15,6 +15,7 @@ const App = () => {
   currentDayCellBackgroundColor="orange"
   dayCellFontSize="1rem"
   currentDayCellFontSize="1.5rem"
+
 />
     </div>
   );

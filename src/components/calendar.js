@@ -18,13 +18,17 @@ const CalendarHeader = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   position: relative;
+  padding:1%
+  box-sizing:border-box
 `;
 
 const CalendarIcon = styled(RiCalendar2Line)`
   position: absolute;
-  top: 70%;
+  top: 50%;
+  height:100%;
+  width:5%;
   left: 1.5rem;
   transform: translateY(-50%);
   font-size: 2.5rem;
@@ -92,7 +96,7 @@ const Calendar = ({ height, width, dayCellBackgroundColor, dayCellHoverBackgroun
   const [isPrev, setIsPrev] = useState(false);
 
   const today = new Date();
-  const daysInMonth = 31; // For simplicity, we assume 31 days max.
+  const daysInMonth = 31; 
 
   const handleDayClick = (date) => {
     setSelectedDate(date);
@@ -112,7 +116,8 @@ const Calendar = ({ height, width, dayCellBackgroundColor, dayCellHoverBackgroun
 
   return (
     <CalendarWrapper height={height} width={width}>
-      <CalendarHeader>
+      <CalendarHeader
+      >
         <CalendarIcon />
         <ArrowButton onClick={handlePrevMonth}>&lt;</ArrowButton>
         {format(currentMonth, 'MMMM yyyy')}
