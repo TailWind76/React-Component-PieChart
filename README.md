@@ -1,10 +1,10 @@
-# Slider Component Usage Documentation
+# Popup Component Usage Documentation
 
-The Slider component provides a customizable slider to display content as slides.
+The Popup component provides a customizable modal popup that can be shown or hidden. It supports various animation types to create visually appealing transitions.
 
 ## Installation
 
-To use the Slider component in your project, make sure you have React installed and then run the following command:
+To use the Popup component in your project, make sure you have React installed, and then run the following command:
 
 ```bash
 npm install --save react
@@ -13,85 +13,77 @@ npm install --save react
 ## Import the Component
 
 ```jsx
-import Slider from './Slider'; // Specify the path to the Slider.js file
+import Popup from './Popup'; // Specify the path to the Popup.js file
 ```
 
 ## Usage
 
 ```jsx
-<Slider>
-  {/* Your slides go here */}
-</Slider>
+<Popup
+  isOpen={/* Boolean indicating whether the popup is open or closed */}
+  onClose={/* Function to close the popup */}
+  animationType="translateY" // You can set it to any supported animation type: "scale", "translateY", "rotate", "skew", "fadeInOut", "slideX", "flip"
+>
+  {/* Your popup content goes here */}
+</Popup>
 ```
 
 ## Props
 
-The Slider component supports the following props to customize its appearance and behavior:
+The Popup component supports the following props to customize its appearance and behavior:
 
-1. `width` (string, optional): Sets the width of the slider. For example, "600px".
+1. `isOpen` (boolean, required): Indicates whether the popup is open or closed. Set this prop to `true` to open the popup and `false` to close it.
 
-2. `height` (string, optional): Sets the height of the slider. For example, "300px".
+2. `onClose` (function, required): A callback function to be called when the user clicks outside the popup or on the close button to close the popup.
 
-3. `slideBackgroundColor` (string, optional): Sets the background color of the slides. For example, "lightblue".
+3. `animationType` (string, optional): Sets the type of animation to use when the popup is shown or hidden. Supported values: "scale", "translateY", "rotate", "skew", "fadeInOut", "slideX", "flip". Default: "translateY".
 
-4. `arrowColor` (string, optional): Sets the color of the slide navigation arrows. For example, "darkblue".
+4. `popupWidth` (string, optional): Sets the width of the popup. Default: "400px".
 
-5. `arrowSize` (string, optional): Sets the size of the slide navigation arrows. For example, "40px".
+5. `popupHeight` (string, optional): Sets the height of the popup. Default: "auto".
 
-6. `leftArrowPosition` (string, optional): Sets the position of the left arrow. For example, "20px".
+6. `backgroundColor` (string, optional): Sets the background color of the popup. Default: "#ffffff" (white).
 
-7. `rightArrowPosition` (string, optional): Sets the position of the right arrow. For example, "20px".
+7. `borderRadius` (string, optional): Sets the border radius of the popup. Default: "5px".
 
-8. `arrowsPlacement` (string, optional): Sets the placement of the slide navigation arrows. Possible values: "top", "bottom", "middle". Default: "middle".
-
-9. `sliderPosition` (string, optional): Sets the position of the slider inside its container. For example, "center".
-
-10. `sliderPositionType` (string, optional): Sets the type of positioning for the slider. Possible values: "relative", "absolute", "fixed". Default: "relative".
-
-11. `sliderPositionOffset` (object, optional): Allows setting additional offsets for the slider. For example, `{ top: '20px', left: '30px' }`.
-
-12. `sliderPositionOffsetPreset` (string, optional): Predefined offset values for different slider positioning types. Possible values: "top", "bottom", "left", "right". Default: None.
-
-13. `showPagination` (boolean, optional): Controls the visibility of pagination (dots below the slider to switch between slides). Default: false.
-
-14. `slideAnimationDuration` (string, optional): Sets the duration of slide transition animation. For example, "0.5s". Default: "0.3s".
-
-15. `autoScroll` (boolean, optional): Controls automatic scrolling of slides. If set to true, slides will auto-scroll. Default: false.
-
-16. `autoScrollDelay` (number, optional): Delay before automatic slide scrolling in milliseconds. For example, 5000 for a 5-second delay. Default: 3000 (3 seconds).
-
-17.'PaginActive' (string,optional): Color of active dot in pagination menu. Default: 'rgba(0, 0, 0, 0.9)'
-
-18.'PaginBack' (string,optional): Color of background inactive dot in pagination menu. Default: ''rgba(0, 0, 0, 0.5)'
-
-19. 'PaginSize' (string,optional): Size of pagination menu. Default (10)
-
-## Example using all props
+## Example
 
 ```jsx
-<Slider
-  width='500px'
-  height='400px'
-  slideBackgroundColor="violet"
-  arrowSize='40px'
-  arrowBackgroundColor='aqua'
-  arrowColor='#000'
-  arrowBackColor="cyan"
-  leftArrowPosition="20px"
-  rightArrowPosition="20px"
-  arrowsPlacement="middle"
-  sliderPositionType="absolute"
-  sliderPositionOffsetPreset="right"
-  showPagination={true}
-  slideAnimationDuration='0.2s'
-  autoScroll={true}
-  autoScrollDelay={5000}
-  PaginActive="#fff"
-  PaginBack="#000"
-  PaginSize={20}
->
-  {/* Your slides go here */}
-</Slider>
+import React, { useState } from 'react';
+import Popup from './Popup';
+
+const App = () => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleOpenPopup = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  return (
+    <div>
+      <button onClick={handleOpenPopup}>Open Popup</button>
+      <Popup
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+        animationType="fadeInOut"
+        popupWidth="600px"
+        popupHeight="300px"
+        backgroundColor="#f1f1f1"
+        borderRadius="10px"
+      >
+        <h2>Popup Content</h2>
+        <p>This is a sample popup content.</p>
+        <button onClick={handleClosePopup}>Close</button>
+      </Popup>
+    </div>
+  );
+};
+
+export default App;
 ```
 
-You can use the Slider component's props to customize its appearance and behavior according to your needs.
+You can use the Popup component's props to control when the popup is shown or hidden and customize the animation type, size, background color, and border radius for a smooth visual effect. The popup content can be fully customized to suit your needs.
