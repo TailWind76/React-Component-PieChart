@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Slider Component Usage Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Slider component provides a customizable slider to display content as slides.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+To use the Slider component in your project, make sure you have React installed and then run the following command:
 
-### `npm start`
+```bash
+npm install --save react
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Import the Component
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```jsx
+import Slider from './Slider'; // Specify the path to the Slider.js file
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```jsx
+<Slider>
+  {/* Your slides go here */}
+</Slider>
+```
 
-### `npm run build`
+## Props
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Slider component supports the following props to customize its appearance and behavior:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. `width` (string, optional): Sets the width of the slider. For example, "600px".
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. `height` (string, optional): Sets the height of the slider. For example, "300px".
 
-### `npm run eject`
+3. `slideBackgroundColor` (string, optional): Sets the background color of the slides. For example, "lightblue".
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. `arrowColor` (string, optional): Sets the color of the slide navigation arrows. For example, "darkblue".
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. `arrowSize` (string, optional): Sets the size of the slide navigation arrows. For example, "40px".
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. `leftArrowPosition` (string, optional): Sets the position of the left arrow. For example, "20px".
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+7. `rightArrowPosition` (string, optional): Sets the position of the right arrow. For example, "20px".
 
-## Learn More
+8. `arrowsPlacement` (string, optional): Sets the placement of the slide navigation arrows. Possible values: "top", "bottom", "middle". Default: "middle".
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+9. `sliderPosition` (string, optional): Sets the position of the slider inside its container. For example, "center".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+10. `sliderPositionType` (string, optional): Sets the type of positioning for the slider. Possible values: "relative", "absolute", "fixed". Default: "relative".
 
-### Code Splitting
+11. `sliderPositionOffset` (object, optional): Allows setting additional offsets for the slider. For example, `{ top: '20px', left: '30px' }`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+12. `sliderPositionOffsetPreset` (string, optional): Predefined offset values for different slider positioning types. Possible values: "top", "bottom", "left", "right". Default: None.
 
-### Analyzing the Bundle Size
+13. `showPagination` (boolean, optional): Controls the visibility of pagination (dots below the slider to switch between slides). Default: false.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+14. `slideAnimationDuration` (string, optional): Sets the duration of slide transition animation. For example, "0.5s". Default: "0.3s".
 
-### Making a Progressive Web App
+15. `autoScroll` (boolean, optional): Controls automatic scrolling of slides. If set to true, slides will auto-scroll. Default: false.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+16. `autoScrollDelay` (number, optional): Delay before automatic slide scrolling in milliseconds. For example, 5000 for a 5-second delay. Default: 3000 (3 seconds).
 
-### Advanced Configuration
+17.'PaginActive' (string,optional): Color of active dot in pagination menu. Default: 'rgba(0, 0, 0, 0.9)'
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+18.'PaginBack' (string,optional): Color of background inactive dot in pagination menu. Default: ''rgba(0, 0, 0, 0.5)'
 
-### Deployment
+19. 'PaginSize' (string,optional): Size of pagination menu. Default (10)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Example using all props
 
-### `npm run build` fails to minify
+```jsx
+<Slider
+  width='500px'
+  height='400px'
+  slideBackgroundColor="violet"
+  arrowSize='40px'
+  arrowBackgroundColor='aqua'
+  arrowColor='#000'
+  arrowBackColor="cyan"
+  leftArrowPosition="20px"
+  rightArrowPosition="20px"
+  arrowsPlacement="middle"
+  sliderPositionType="absolute"
+  sliderPositionOffsetPreset="right"
+  showPagination={true}
+  slideAnimationDuration='0.2s'
+  autoScroll={true}
+  autoScrollDelay={5000}
+  PaginActive="#fff"
+  PaginBack="#000"
+  PaginSize={20}
+>
+  {/* Your slides go here */}
+</Slider>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+You can use the Slider component's props to customize its appearance and behavior according to your needs.
