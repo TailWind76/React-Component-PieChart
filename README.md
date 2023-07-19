@@ -1,10 +1,10 @@
-# Popup Component Usage Documentation
+# Calendar Component Usage Documentation
 
-The Popup component provides a customizable modal popup that can be shown or hidden. It supports various animation types to create visually appealing transitions.
+The Calendar component provides a customizable and visually appealing calendar that allows users to select specific dates. It also indicates the current date on the calendar for easy reference.
 
 ## Installation
 
-To use the Popup component in your project, make sure you have React installed, and then run the following command:
+To use the Calendar component in your project, make sure you have React installed, and then run the following command:
 
 ```bash
 npm install --save react
@@ -13,72 +13,52 @@ npm install --save react
 ## Import the Component
 
 ```jsx
-import Popup from './Popup'; // Specify the path to the Popup.js file
+import Calendar from './Calendar'; // Specify the path to the Calendar.js file
 ```
 
 ## Usage
 
 ```jsx
-<Popup
-  isOpen={/* Boolean indicating whether the popup is open or closed */}
-  onClose={/* Function to close the popup */}
-  animationType="translateY" // You can set it to any supported animation type: "scale", "translateY", "rotate", "skew", "fadeInOut", "slideX", "flip"
->
-  {/* Your popup content goes here */}
-</Popup>
+<Calendar />
 ```
 
 ## Props
 
-The Popup component supports the following props to customize its appearance and behavior:
+The Calendar component supports the following optional props to customize its appearance and behavior:
 
-1. `isOpen` (boolean, required): Indicates whether the popup is open or closed. Set this prop to `true` to open the popup and `false` to close it.
+1. `height` (string, optional): Sets the height of the calendar. Default: "500px".
 
-2. `onClose` (function, required): A callback function to be called when the user clicks outside the popup or on the close button to close the popup.
+2. `width` (string, optional): Sets the width of the calendar. Default: "700px".
 
-3. `animationType` (string, optional): Sets the type of animation to use when the popup is shown or hidden. Supported values: "scale", "translateY", "rotate", "skew", "fadeInOut", "slideX", "flip". Default: "translateY".
+3. `dayCellBackgroundColor` (string, optional): Sets the background color of the individual day cells in the calendar. Default: "transparent".
 
-4. `popupWidth` (string, optional): Sets the width of the popup. Default: "400px".
+4. `dayCellHoverBackgroundColor` (string, optional): Sets the background color of the individual day cells when hovered over. Default: "orange".
 
-5. `popupHeight` (string, optional): Sets the height of the popup. Default: "auto".
+5. `currentDayCellBackgroundColor` (string, optional): Sets the background color of the current day cell. Default: "orange".
 
-6. `backgroundColor` (string, optional): Sets the background color of the popup. Default: "#ffffff" (white).
+6. `dayCellFontSize` (string, optional): Sets the font size of the text inside the individual day cells. Default: "1rem".
 
-7. `borderRadius` (string, optional): Sets the border radius of the popup. Default: "5px".
+7. `currentDayCellFontSize` (string, optional): Sets the font size of the text inside the current day cell. Default: "1.2rem".
 
 ## Example
 
 ```jsx
-import React, { useState } from 'react';
-import Popup from './Popup';
+import React from 'react';
+import Calendar from './Calendar';
 
 const App = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
-
   return (
     <div>
-      <button onClick={handleOpenPopup}>Open Popup</button>
-      <Popup
-        isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-        animationType="fadeInOut"
-        popupWidth="600px"
-        popupHeight="300px"
-        backgroundColor="#f1f1f1"
-        borderRadius="10px"
-      >
-        <h2>Popup Content</h2>
-        <p>This is a sample popup content.</p>
-        <button onClick={handleClosePopup}>Close</button>
-      </Popup>
+      <h1>My Calendar App</h1>
+      <Calendar
+        height="600px"
+        width="800px"
+        dayCellBackgroundColor="#f0f0f0"
+        dayCellHoverBackgroundColor="#a3a3a3"
+        currentDayCellBackgroundColor="#ff6666"
+        dayCellFontSize="1.1rem"
+        currentDayCellFontSize="1.4rem"
+      />
     </div>
   );
 };
@@ -86,4 +66,4 @@ const App = () => {
 export default App;
 ```
 
-You can use the Popup component's props to control when the popup is shown or hidden and customize the animation type, size, background color, and border radius for a smooth visual effect. The popup content can be fully customized to suit your needs.
+In this example, the Calendar component is rendered with custom height, width, background colors, and font sizes. You can adjust the props to customize the appearance of the calendar according to your project's needs. The calendar allows users to select specific dates and visually indicates the current date, providing a great user experience.

@@ -1,34 +1,21 @@
-import React, { useState } from 'react';
-import Popup from './components/popup';
+
+import React from 'react';
+import Calendar from './components/calendar';
+import './App.css'; 
 
 const App = () => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  const handleOpenPopup = () => {
-    setIsPopupOpen(true);
-  };
-
-  const handleClosePopup = () => {
-    setIsPopupOpen(false);
-  };
-
   return (
     <div>
-      <button onClick={handleOpenPopup}>Open popup</button>
-      <Popup isOpen={isPopupOpen} onClose={handleClosePopup} animationType="rotate"
-      
-      popupWidth="600px"
-      popupHeight="300px"
-      backgroundColor="#f1f1f1"
-      borderRadius="10px"
-
-
-      
-      >
-       <h2>Hello</h2>
-
-       <p>It`s popup text!</p>
-      </Popup>
+      <h1>My Calendar App</h1>
+      <Calendar
+  height="400px"
+  width="600px"
+  dayCellBackgroundColor="lightblue"
+  dayCellHoverBackgroundColor="lightcoral"
+  currentDayCellBackgroundColor="orange"
+  dayCellFontSize="1rem"
+  currentDayCellFontSize="1.5rem"
+/>
     </div>
   );
 };
