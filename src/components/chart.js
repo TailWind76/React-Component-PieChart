@@ -50,7 +50,7 @@ const PieChart = ({ data, blockStyles, miniBlockStyles, diagramSize = 400, Stati
   } else if (statisticPosition === 'bottom') {
     flexDirection = 'column-reverse';
   } else {
-    flexDirection = 'column-reverse'; // По умолчанию, если передан некорректный параметр
+    flexDirection = 'column-reverse'; 
   }
 
   return (
