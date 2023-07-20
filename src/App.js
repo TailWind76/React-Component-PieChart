@@ -20,7 +20,7 @@ const App = () => {
     fontWeight: 'bold',
     height:'30px',
     color: '#333',
-    width:'120px',
+    width:'40%',
     backgroundColor: '#f0f0f0',
     padding: '8px',
     borderRadius: '25px',
@@ -59,7 +59,7 @@ const App = () => {
         miniBlockStyles={miniBlockStyles}
         statisticPosition='top'
         diagramSize={350}
-        StatisticWrapperWidth='300px'
+        StatisticWrapperWidth='400px'
       />
 
 

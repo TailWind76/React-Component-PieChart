@@ -55,7 +55,7 @@ const PieChart = ({ data, blockStyles, miniBlockStyles, diagramSize = 400, Stati
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection,gap:'5%' }}>
-      <div style={{ marginBottom: '20px', width:StatisticWrapperWidth,display:'flex',flexWrap:'wrap'}}>
+      <div style={{ marginBottom: '20px', width:StatisticWrapperWidth,display:'flex',flexWrap:'wrap',justifyContent:'space-between'}}>
         {data.map((item, index) => {
           const angle = (item.value / total) * 360;
 
