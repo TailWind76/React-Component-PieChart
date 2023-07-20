@@ -52,6 +52,7 @@ The PieChart component supports the following optional props to customize its ap
 
 4. `statisticPosition` (string, optional, default: 'bottom'): Sets the position of the statistic block relative to the diagram. Available options are "left" (row), "right" (row-reverse), "top" (column), and "bottom" (column-reverse). Use this prop to control the positioning of the statistic block.
 
+5. `StatisticWrapperWidth` (string,optional,default: 'none'): Sets the width of the container for statistics blocks
 ## Example
 
 ```jsx
@@ -87,6 +88,7 @@ const App = () => {
         miniBlockStyles={customMiniBlockStyles}
         diagramSize={500}
         statisticPosition="right"
+        StatisticWrapperWidth='300px'
       />
     </div>
   );
