@@ -1,10 +1,10 @@
-# Autocomplete Component Usage Documentation
+# PieChart Component Usage Documentation
 
-The Autocomplete component provides a powerful and customizable autocomplete feature that suggests options based on user input. It allows users to easily select from the suggested options, enhancing the user experience.
+The PieChart component is a versatile and customizable data visualization tool that displays data in a circular chart, allowing users to visualize proportions and percentages of different elements in a dataset.
 
 ## Installation
 
-To use the Autocomplete component in your project, make sure you have React installed, and then run the following command:
+To use the PieChart component in your project, make sure you have React installed, and then run the following command:
 
 ```bash
 npm install --save react
@@ -13,48 +13,80 @@ npm install --save react
 ## Import the Component
 
 ```jsx
-import Autocomplete from './Autocomplete'; // Specify the path to the Autocomplete.js file
+import PieChart from './PieChart'; // Specify the path to the PieChart.js file
 ```
 
 ## Usage
 
 ```jsx
-<Autocomplete data={['apple', 'banana', 'orange', 'pear']} />
+import React from 'react';
+import PieChart from './PieChart';
+
+const App = () => {
+  const data = [
+    { text: 'A', value: 30 },
+    { text: 'B', value: 20 },
+    { text: 'C', value: 50 },
+  ];
+
+  return (
+    <div>
+      <h1>PieChart Example</h1>
+      <PieChart data={data} />
+    </div>
+  );
+};
+
+export default App;
 ```
 
 ## Props
 
-The Autocomplete component supports the following optional props to customize its appearance and behavior:
+The PieChart component supports the following optional props to customize its appearance and behavior:
 
-1. `inputStyles` (object, optional): Sets the styles for the input element. You can use this prop to customize the input's appearance, such as width, font size, and padding.
+1. `blockStyles` (object, optional): Sets the styles for the individual blocks displaying data labels and percentages. Use this prop to customize the appearance of each data block, such as font size, margin, or alignment.
 
-2. `themePreset` (string, optional): Sets the theme preset for the Autocomplete component. Available options are "light" (default) and "dark". When set to "dark", the component will use dark-themed styles.
+2. `miniBlockStyles` (object, optional): Sets the styles for the mini-blocks representing data elements with random colors. You can use this prop to customize the appearance of the mini-blocks, such as width, height, or border radius.
 
-3. `suggestionWidth` (string, optional): Sets the width of the suggestion list. By default, it matches the width of the input element.
+3. `diagramSize` (number, optional, default: 400): Sets the size of the PieChart diagram. This prop allows you to adjust the size of the circular diagram according to your design requirements.
+
+4. `statisticPosition` (string, optional, default: 'bottom'): Sets the position of the statistic block relative to the diagram. Available options are "left" (row), "right" (row-reverse), "top" (column), and "bottom" (column-reverse). Use this prop to control the positioning of the statistic block.
 
 ## Example
 
 ```jsx
 import React from 'react';
-import Autocomplete from './Autocomplete';
+import PieChart from './PieChart';
 
 const App = () => {
-  const customInputStyles = {
-    width: '300px',
-    padding: '10px',
-    fontSize: '18px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
+  const data = [
+    { text: 'A', value: 30 },
+    { text: 'B', value: 20 },
+    { text: 'C', value: 50 },
+  ];
+
+  const customBlockStyles = {
+    marginBottom: '8px',
+    fontSize: '14px',
+    fontWeight: 'bold',
+  };
+
+  const customMiniBlockStyles = {
+    width: '12px',
+    height: '12px',
+    borderRadius: '50%',
+    marginRight: '6px',
   };
 
   return (
     <div>
-      <h1>Autocomplete Example</h1>
-      <Autocomplete
-        data={['apple', 'banana', 'orange', 'pear']}
-        inputStyles={customInputStyles}
-        themePreset="dark"
-        suggestionWidth="350px"
+      <h1>PieChart Example</h1>
+      <PieChart
+        data={data}
+        blockStyles={customBlockStyles}
+        miniBlockStyles={customMiniBlockStyles}
+        diagramSize={500}
+        statisticPosition="right"
       />
     </div>
   );
@@ -63,4 +95,4 @@ const App = () => {
 export default App;
 ```
 
-In this example, the Autocomplete component is rendered with custom input styles, a dark theme, and a suggestion list width of 350px. You can adjust the props to customize the appearance and behavior of the Autocomplete component according to your project's requirements. The Autocomplete component will suggest options based on user input and provide an efficient and user-friendly way to select from the suggestions.
+In this example, the PieChart component is rendered with custom block and mini-block styles, a diagram size of 500x500 pixels, and the statistic block positioned on the right side of the diagram. You can adjust the props to customize the appearance and behavior of the PieChart component according to your project's requirements. The PieChart component will render a circular chart with random colors representing different data elements and display corresponding data labels and percentages for each element.

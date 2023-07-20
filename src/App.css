@@ -10,14 +10,14 @@ html,body{
 
 
 .wrapper{
-
-  background-color: blueviolet;
-  width: 900px;
-  height: 400px;
+  background-color: rgb(139, 15, 255);
+  width: 400px;
+  height: auto;
   border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 10%;
 }
 
