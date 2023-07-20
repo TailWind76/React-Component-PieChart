@@ -1,10 +1,10 @@
-# Calendar Component Usage Documentation
+# Autocomplete Component Usage Documentation
 
-The Calendar component provides a customizable and visually appealing calendar that allows users to select specific dates. It also indicates the current date on the calendar for easy reference.
+The Autocomplete component provides a powerful and customizable autocomplete feature that suggests options based on user input. It allows users to easily select from the suggested options, enhancing the user experience.
 
 ## Installation
 
-To use the Calendar component in your project, make sure you have React installed, and then run the following command:
+To use the Autocomplete component in your project, make sure you have React installed, and then run the following command:
 
 ```bash
 npm install --save react
@@ -13,51 +13,48 @@ npm install --save react
 ## Import the Component
 
 ```jsx
-import Calendar from './Calendar'; // Specify the path to the Calendar.js file
+import Autocomplete from './Autocomplete'; // Specify the path to the Autocomplete.js file
 ```
 
 ## Usage
 
 ```jsx
-<Calendar />
+<Autocomplete data={['apple', 'banana', 'orange', 'pear']} />
 ```
 
 ## Props
 
-The Calendar component supports the following optional props to customize its appearance and behavior:
+The Autocomplete component supports the following optional props to customize its appearance and behavior:
 
-1. `height` (string, optional): Sets the height of the calendar. Default: "500px".
+1. `inputStyles` (object, optional): Sets the styles for the input element. You can use this prop to customize the input's appearance, such as width, font size, and padding.
 
-2. `width` (string, optional): Sets the width of the calendar. Default: "700px".
+2. `themePreset` (string, optional): Sets the theme preset for the Autocomplete component. Available options are "light" (default) and "dark". When set to "dark", the component will use dark-themed styles.
 
-3. `dayCellBackgroundColor` (string, optional): Sets the background color of the individual day cells in the calendar. Default: "transparent".
-
-4. `dayCellHoverBackgroundColor` (string, optional): Sets the background color of the individual day cells when hovered over. Default: "orange".
-
-5. `currentDayCellBackgroundColor` (string, optional): Sets the background color of the current day cell. Default: "orange".
-
-6. `dayCellFontSize` (string, optional): Sets the font size of the text inside the individual day cells. Default: "1rem".
-
-7. `currentDayCellFontSize` (string, optional): Sets the font size of the text inside the current day cell. Default: "1.2rem".
+3. `suggestionWidth` (string, optional): Sets the width of the suggestion list. By default, it matches the width of the input element.
 
 ## Example
 
 ```jsx
 import React from 'react';
-import Calendar from './Calendar';
+import Autocomplete from './Autocomplete';
 
 const App = () => {
+  const customInputStyles = {
+    width: '300px',
+    padding: '10px',
+    fontSize: '18px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+  };
+
   return (
     <div>
-      <h1>My Calendar App</h1>
-      <Calendar
-        height="600px"
-        width="800px"
-        dayCellBackgroundColor="#f0f0f0"
-        dayCellHoverBackgroundColor="#a3a3a3"
-        currentDayCellBackgroundColor="#ff6666"
-        dayCellFontSize="1.1rem"
-        currentDayCellFontSize="1.4rem"
+      <h1>Autocomplete Example</h1>
+      <Autocomplete
+        data={['apple', 'banana', 'orange', 'pear']}
+        inputStyles={customInputStyles}
+        themePreset="dark"
+        suggestionWidth="350px"
       />
     </div>
   );
@@ -66,4 +63,4 @@ const App = () => {
 export default App;
 ```
 
-In this example, the Calendar component is rendered with custom height, width, background colors, and font sizes. You can adjust the props to customize the appearance of the calendar according to your project's needs. The calendar allows users to select specific dates and visually indicates the current date, providing a great user experience.
+In this example, the Autocomplete component is rendered with custom input styles, a dark theme, and a suggestion list width of 350px. You can adjust the props to customize the appearance and behavior of the Autocomplete component according to your project's requirements. The Autocomplete component will suggest options based on user input and provide an efficient and user-friendly way to select from the suggestions.

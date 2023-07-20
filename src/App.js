@@ -1,22 +1,27 @@
-
 import React from 'react';
-import Calendar from './components/calendar';
-import './App.css'; 
-
+import Autocomplete from './components/searchBar';
+import './App.css'
 const App = () => {
-  return (
-    <div>
-      <h1>My Calendar App</h1>
-      <Calendar
-  height="400px"
-  width="600px"
-  dayCellBackgroundColor="lightblue"
-  dayCellHoverBackgroundColor="lightcoral"
-  currentDayCellBackgroundColor="orange"
-  dayCellFontSize="1rem"
-  currentDayCellFontSize="1.5rem"
+  const data = ['Apple', 'Banana', 'Cherry','Date', 'Grape'];
 
-/>
+  const customInputStyles = {
+    width: '500px',
+    height:'30px',
+    fontSize: '20px',
+    borderRadius:'10px',
+    border:'none',
+    
+  };
+
+  return (
+    <div className='wrapper'>
+      <h1>Autocomplete Example</h1>
+      <Autocomplete data={data} inputStyles={customInputStyles} themePreset="dark" />
+
+      <Autocomplete data={data}   inputStyles={customInputStyles} themePreset="light" />
+
+    
+
     </div>
   );
 };
